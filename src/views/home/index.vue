@@ -6,7 +6,7 @@
 
 
 <script setup lang="ts">
-import {provide} from 'vue'
+// import {provide} from 'vue'
 
 import {lcWorkspaceManager} from 'mttk-lowcode'
 // import createGlobalContext from '@/context/globalContext/index'
