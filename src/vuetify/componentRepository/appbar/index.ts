@@ -32,3 +32,5 @@ export const appbarConfig = {
   },
   initStyles: {},
 };
+//
+// console.log(JSON.stringify(appbarConfig,null,2))

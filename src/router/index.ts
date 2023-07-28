@@ -4,11 +4,11 @@ import {lcAppEditorWithRouter,lcLayout,lcDeployed} from 'mttk-lowcode'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/test1',
-      name: 'test1',
-      component: () => import('../views/test1/index.vue')
-    },
+    // {
+    //   path: '/test1',
+    //   name: 'test1',
+    //   component: () => import('../views/test1/index.vue')
+    // },
     // {
     //   path: '/',
     //   name: 'home',
