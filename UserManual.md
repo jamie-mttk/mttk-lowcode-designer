@@ -6,6 +6,8 @@
 
 Using this system only requires a modern browser! The default URL is  http://%your server ip%:8825
 
+![Login](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/login.png)
+
 ### Login
 
 Login screen will automatically appear if not login or login token is expired.
@@ -14,6 +16,8 @@ Input username and passowrd. Defautl account is admin/123456
 ### Application
 
 After login the application list screen is shown. Here you can add a new application. 
+
+![App list](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/app_list.png)
 
 Below is the operations of existing application.
 
@@ -34,6 +38,8 @@ Standard JDBC configuration. Regarding JDBC driver refer to chapter "DB support"
 It is a tree/star architecture, each node is a table/view or SQL dragged from left panel.
 For each node you can edit basic info/relation and choose columns.
 
+![Data model](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/data_model.png)
+
 #### Expression field
 
 It is the field which is not existed directly in datase table. Below are some key points:
@@ -50,9 +56,13 @@ Page has two layout strategy,one is flex ,the other is absolute. They can simply
 Flex strategy is recommanded to use,the chart will automatically extend to fit the screen width.
 Absolute strategy has fixed width and height, but it can be configured to fullfil the screen width/height or both. It is useful to build a dashboard/Larg screen to display in fullscreen mode. 
 
+![Design](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/design.png)
+
 ### Page design
 
 #### UI
+
+![Page design](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/single_page.png)
 
 The top area display the page name and some buttons.
 
