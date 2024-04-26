@@ -20,12 +20,9 @@ This project provides a platform for rapid development of HTML5 applications wit
 
 Most of the Lowcode are form generation + workflow, so it can only develop some simple project such as leave application,survey. Our design concept is quite different as described below.
 
-- Vue3 based
-
+- Vue3 based  
 It can be considered as a visual Vue3 editor to manipulate data/computed/method/component properties/etc. So it can do the same thing as what Vue3 can do.  
-
-- Pluggable
-
+- Pluggable  
    It is NOT a good idea to use lowcode to build a project with many customized code,but using low code for specific scenarios is valuable. So how to make lowcode to fit the specific scenario? The answer is plugin.MTTK Open BI is a good sample of what plugin can do. First the component libarary can be extended, Second the login page/application resource/property editor/etc. can also be extended by plugin mechanism.
 
 ## Live demo
@@ -89,21 +86,16 @@ A full authorization control is built based on the concept of resource/owner/own
 
 This chapter guide how to isntall MTTK Lowcode Engine + MTTK Open BI into your local machine.
 
-1. Install mongodb
-
+1. Install mongodb  
     Skip this step if alreay installed
     Download mongodb from [MongoDB official site](https://www.mongodb.com/)
     The min version required is 4.2, the last version is recommended to use.
     Install mongodb.
-
-2. Install last version of Java (Min version 20)
-
-3. Download lowcode.jar from [Here](https://github.com/jamie-mttk/mttk_lowcode_api/blob/main/lowcode.jar)
-
+2. Install last version of Java (Min version 20)  
+3. Download lowcode.jar from [Here](https://github.com/jamie-mttk/mttk_lowcode_api/blob/main/lowcode.jar)  
     This jar includes all the necessary JS/CSS/HTML as static resouce.
 
-4. Start
-
+4. Start  
    Run command below ,replace %xxx% to correct path
    %your java path%/bin/java -jar %your lowcode jar path%/lowcode.jar
    Defautly the lowcode.jar will connect to local mongodb:27017 without authorization. Admin account and other configuration will automatiaclly be created in mongodb.
