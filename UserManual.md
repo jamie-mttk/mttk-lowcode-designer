@@ -1,12 +1,10 @@
-# MTTK Open BI User Manual
+# MTTK Lowcode Engine and MTTK Open BI User Manual
 
 ## How to use
 
 ### Access URL
 
-Using this system only requires a modern browser! The default URL is 
-
-http://%your server ip%:8825
+Using this system only requires a modern browser! The default URL is  http://%your server ip%:8825
 
 ### Login
 
@@ -23,7 +21,7 @@ Below is the operations of existing application.
 |---|---|
 |Design|Developer can edit resources under application,such as menu,page,JDBC conneciton,data model|
 |Lauch|End user can view the charts grouped by menus/pages|
-|Setting|Application properties|
+|Setting|Application properties,such as name,icon,etc.|
 |Delete|Delete application and all resources associated|
 |Data auth|Authorize application access|
 
@@ -72,7 +70,30 @@ In main panel component can be orgnized by container component. The typical comp
 
 The components under BI are BI related components,the property editor support data model/basic/display. Data model tab config which data model is used and the logic of how to retrieve data from data model, detail is described below. The basic tab config the behavior of chart, such as theme/title/etc. Display tab is used to set the CSS style of the chart.
 
-#### Config data model of BI components
+### Property editor - data
+
+Some components, for example input/form need to set data.The type of data set must match the required data type.Data can be set by multiple modes as below
+
+|Mode|Description|
+|---|---|
+|Data|Data defined in data editor."Data path" is used to retrieve a sub set from data. Read and write.|
+|Computed|Computed defined in computed editor. Read and write.|
+|Method|The return value of the method as data, read only.|
+|Fixed|Fixed value, will try to conform to required data type. Read only.|
+
+### Property editor - event
+
+Event can defined the behavior once component emit event. The event name can be select from list or input manually and then press Enter.
+Mutiple modes are supported to handle event
+|Mode|Description|
+|---|---|
+|Script|Call script directly. The first parameter is page contex, the second one is wrapper contex, the others are event original parameters. Page context and wrap context refer to later chapter "advanced topics"|
+|Method|Call method defined in method editor.Parameter defines is same as script above.|
+|API|Directly call an API defined in API editor|
+
+### Page design of BI
+
+#### Config data model 
 
 For each config, moving mouse to quesiton icon will show the meaning of the choosed chart
 

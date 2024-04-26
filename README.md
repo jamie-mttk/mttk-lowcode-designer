@@ -16,7 +16,7 @@ It is a set of plugins of MTTK Lowcode Engine, so the user manual and develop ma
 
 ### MTTK Lowcode Engine
 
-This project provides a platform for rapid development of HTML5 applications without or with a small amount of code. 
+A platform for rapid development of HTML5 applications without or with a small amount of code. 
 
 Most of the Lowcode are form generation + workflow, so it can only develop some simple project such as leave application,survey. Our design concept is quite different as described below.
 
