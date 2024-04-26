@@ -1,92 +1,165 @@
-# MTTK low code User Manual
+# MTTK Open BI User Manual
 
-## Main screen
+## How to use
 
-![Main screen](https://github.com/jamie-mttk/mttk_lowcode_ui/blob/master/src/screenCaptures/main.png)
+### Access URL
 
-The first screen show all the applications and page widgets.
+Using this system only requires a modern browser! The default URL is 
 
-### Application management 
+http://%your server ip%:8825
 
-Move the cursor to the proper application area to show the below operations:
+### Login
+
+Login screen will automatically appear if not login or login token is expired.
+Input username and passowrd. Defautl account is admin/123456
+
+### Application
+
+After login the application list screen is shown. Here you can add a new application. 
+
+Below is the operations of existing application.
+
 |Operation|Description|
 |---|---|
-|Design|Design the menus and pages under this app, navigate to application edit screen|
-|Launch|Lauch the deployed application|
-|Setting|Change application name, icon,color|
-|Delete|Delete this application. The operation is unrecoverable.|
+|Design|Developer can edit resources under application,such as menu,page,JDBC conneciton,data model|
+|Lauch|End user can view the charts grouped by menus/pages|
+|Setting|Application properties|
+|Delete|Delete application and all resources associated|
+|Data auth|Authorize application access|
 
-### Launch
+### JDBC connection
 
-![Larunch](https://github.com/jamie-mttk/mttk_lowcode_ui/blob/master/src/screenCaptures/launch.png)
+Standard JDBC configuration. Regarding JDBC driver refer to chapter "DB support" below.
 
-Click lauch button to display the deployed application.
+### Data model
 
-### Page widget
+It is a tree/star architecture, each node is a table/view or SQL dragged from left panel.
+For each node you can edit basic info/relation and choose columns.
 
-![Page widget](https://github.com/jamie-mttk/mttk_lowcode_ui/blob/master/src/screenCaptures/pageWidget.png)
+#### Expression field
 
-Page widget is a component which can be used in page designer as normal component, but it is created by page widget wizard from a created page. 
-Here you can add/edit/delete page widgets. 
+It is the field which is not existed directly in datase table. Below are some key points:
 
-#### Update page
+- Expression is the raw SQL expression which is supported by target database. Engine is simply add expression into the SQL generated.
+- To avoid column conflict it is recommanded to put table alias before column. For example using "order_details.unitPrice*order_details.quantity" instead of "unitPrice*order_quantity-discount" . Table alias is set in table info screen.
+- Entity should be set to figure out the entities the columns in expression are come from. So the engine will automatically add these entities into SQL FROM list if the expression field is used.
 
-Since the page widget has the source code of original page, the modification of original page will not affect the page widget.
-Update page will replace the source code of original page to the updated copy.
+### Menu and page
 
-#### Wizard
+Menus are used to organize pages.
 
-![Page widget wizard](https://github.com/jamie-mttk/mttk_lowcode_ui/blob/master/src/screenCaptures/pageWidget_wizard.png)
+Page has two layout strategy,one is flex ,the other is absolute. They can simply consider as CSS "display:flex" and "display:absolute".
+Flex strategy is recommanded to use,the chart will automatically extend to fit the screen width.
+Absolute strategy has fixed width and height, but it can be configured to fullfil the screen width/height or both. It is useful to build a dashboard/Larg screen to display in fullscreen mode. 
 
-|Step|Description|
+### Page design
+
+#### UI
+
+The top area display the page name and some buttons.
+
+The left panel has pallet and component tree. Pallet contains all the components which can be drag to main panel. Component tree display the component structure of the page, component can be moved up/down or inside/outside panel directly.
+
+The right panel is the property editor. If no component is choosed(By click any empty area in main panel or click page title on the top ),page config is shown;otherwise the property of the choosed component is shown.
+
+The middle area is the main panel to show the component of the page. Moving component up/down or inside/outside panel is supported. And in abosolute mode, resize/change position is supported ;in flex mode, changing height is suported.
+
+#### Component
+
+The component in the left panel can be added by plugin mechenism,Refer to Developer Manual.
+
+In main panel component can be orgnized by container component. The typical components are tabs/layout/card/etc.
+
+The components under BI are BI related components,the property editor support data model/basic/display. Data model tab config which data model is used and the logic of how to retrieve data from data model, detail is described below. The basic tab config the behavior of chart, such as theme/title/etc. Display tab is used to set the CSS style of the chart.
+
+#### Config data model of BI components
+
+For each config, moving mouse to quesiton icon will show the meaning of the choosed chart
+
+|Config|Description|
 |---|---|
-|Basic|Unique Key identify this page widget which can not be change later|
-|UI properties|Choose the UI properties which can be configed|
-|Data|Choose the data which can be configed|
-|Model value|Optional. Define the data in original page which can be set as model value in the created page widget.|
-|Event|Map the events in the components of original page to the created page widget event|
+|Dimension| Normally it can be consider as the value of X axis|
+|Metric| Normally it can be consider as the value of Y axis|
+|Drilling| Only supported by some charts, refer chapter "Drilling"|
+|Filter|Filter the data model just for the choosed componnet|
+|Row limit|Limit the rows returned from server|
+|Pagination|Refer to pagination|
+|Auto refresh|Auto reload data from server and repaint chart, need to reenter page to take affect|
 
-## Application edit screen
+#### SQL generation
 
-![App](https://github.com/jamie-mttk/mttk_lowcode_ui/blob/master/src/screenCaptures/app.png)
+BI engine will generate SQL based on the configuration. The generated SQL can be shown by click "Show SQL". A rough logic is described below.
 
-Manage menus and pages.
+1. Find all the entities(table/view/SQL) where the columns of dimension/metric/filter come from.
+2. Join all the entities found.
+3. Columns of dimension/metric will append to SELECT field list.
+4. Generate filter to WHERE if filter is available
+5. All the columns of dimension will append to GROUP BY if metic is not empty. THIS IS THE ONLY DIFFERENT BETWEEN Dimension AND Metric.
 
-### Deploy
+#### Drilling
 
-Deploy all the update of the application. 
+Refer to "Drilling demo" of the sample project. For example to shown the sales data, the first can be country, the second level can be city ,the third level can be customer, drilling means drill down/up by click on the proper data.
 
-## Page designer
+#### Filter component
 
-![Designer](https://github.com/jamie-mttk/mttk_lowcode_ui/blob/master/src/screenCaptures/designer.png)
+It is used to filter the data lively in view mode. 
 
+The logic is data model based. All the chart with the same data model of the filter componet will be filtered automatically.
 
-|Area|Description|
-|---|---|
-|Pallet|Click to drag widget to user interface area|
-|Source tree|Display all the components of the page. And you can choose componet here if it is invisible or hard to choose in user interface area. And you can also drag/drop to change component hierachy.|
-|User interface|Main area, described later|
-|Data|Same concept as Vue data|
-|Computed|Same concept as Vue computed, so far only readable computed is supported.|
-|Method|Create methods which can be used in event handler or inside script|
-|API|Define a remote API call|
-|Lifecycle|Same concept as Vue lifecycle|
+#### Pagination
 
-Regarding how to write Javascript code refer to "Developer Manual"
+Server pagination means the pagination is done at server side, only the needed rows is returned from server. 
 
-### User Interface
+Client pagination means all the data are returned from server and then do pagination inside browser. 
 
-Choose the proper component to edit at right.
-|Tab|Description|
-|---|---|
-|Basic|Componnet properties|
-|Data|Only available if the component has model value defined |
-|Events|Define event handler|
-|Display|Class and style|
+### Authentication and authorization
 
-#### Expression and raw mode
+Refer to [MTTK Lowcode Engine User Manual](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/UserManual.md) 
 
-Normally properties can be set by raw mode, for example, the Type property of el-input is a select, you can choose primary/success/... directly.
-But if you want to set this property by program, expression mode is necessary. Bind the property to a expression, for example, a data, and then change the data value by program.
+## Other topics
 
-The description of expression  can be found in developer manual
+### DB support
+
+So far the below database are supported, more database will be supported later.
+
+- MySQL
+- PostgreSQL
+- Oracle
+- DB2
+- Microsoft SQL Server
+- Informix
+
+Supporting a database includes two parts:
+
+- Database dialect  is a java class to handle the functionalities which is not included in standard SQL. 
+- JDBC driver.  The last version of JDBC driver is packed into lowcode.jar. If it does not mach your DB, you may need to manually update into lowcode.jar at /BOOT_INF/lib
+  
+Since backend will be redesigned, so the DB support will be pluggable later.
+
+### Performance 
+
+ The performance depends on the SQL excution time in target database server. So the performance can be tuned by analyze the SQL generated.
+
+### Plugin development
+
+Refer to Developer Manual.
+
+### System architecture
+
+Below is a flow to describe how the chart is rendered
+![Architecture](https://github.com/jamie-mttk/mttk-bi/blob/master/src/architecture.png)
+
+## Know issues
+
+### Backend optimize
+
+The backend server is not well defined and will be optimized later. 
+
+- Database support(dialect/JDBC driver) is not pluggable
+- Lowcode engine plugin, for example BI plugins is not pluggable
+
+### Type script support
+
+Although all the front end code are .ts file, in fact they are JS not conform to type script.
+
+### Chart linkage 
