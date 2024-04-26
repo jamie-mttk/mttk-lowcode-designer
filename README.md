@@ -8,11 +8,11 @@ A user-friendly lightweight BI tool.
 
 It is a set of plugins of MTTK Lowcode Engine, so the user manual and develop manual are combined together with MTTK Low Code Engine.
 
-- Lightweight
+- Lightweight  
 
   No data processing engine offered, all the data processing depends on the target Databse Server. 
 
-- Easy to use
+- Easy to use  
 
   For example ,to build an echart need to provide many many configurtaions/options, such as title location, grid position,etc. To simplified the usage ,only the important options should be configured by user with default setting, other options are set by BI system automatically.
 
