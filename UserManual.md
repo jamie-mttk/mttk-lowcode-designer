@@ -143,9 +143,56 @@ Server pagination means the pagination is done at server side, only the needed r
 
 Client pagination means all the data are returned from server and then do pagination inside browser. 
 
-### Authentication and authorization
+## Authentication and authorization
 
-Refer to [MTTK Lowcode Engine User Manual](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/UserManual.md) 
+### Terminology
+
+|Name|Description|
+|---|---|
+|Resource| The object to grant authorization.For example, application, menu, page ,data model,etc. |
+|Account| The user using this system.|
+|Role| Role defined the operations to the resource. One account can have multiple roles.|
+|Account group| Group is used to simplify the authorization. Users with the same user group as the resource owner can obtain access/edit/del permissions for the resource [Can also revoke manually]. One account can belong to multiple groups.|
+|Resource owner| Each resource has one or multiple owners. Defautly the owner is the resource creator.|
+
+### Resource authority
+
+Each resouce type has the below authorities to grant.
+
+|Name|Description|
+|---|---|
+|Access| User can show the resource without any change|
+|Add| Create new resource|
+|Edit| Edit  authorized resources|
+|Delete|Delete authorized resource|
+|Authorize|Chanage resource authorization|
+|Full control| Have full control of all the resource (of this type) even if it is not explicitly granted|
+|All read| Can access all the resource (of this type) even if it is not explicitly granted|
+
+### Management screens
+
+Account
+![Account](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/account.png)
+
+Account group
+![Account group](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/account_group.png)
+
+Role
+![Account](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/role.png)
+
+This is the screen of authorizing single resource
+![Account](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/data_auth.png)
+
+### Rules
+
+The below rules are used to find out whether the account are authoirzed to the given resource
+
+- If the resource (For example page, data model) is under an application ,the application should be authorized
+- If any role of the account has "Full control" of the given resource type, account can acess/add/edit/delete/authorize any resource of this resource type without explicitly granted
+- If any role of the account has "All read" of the given resource type, account can acess any resource of this resource type without explicitly granted. And the account may have explicitly granted add/edit/delete/authorized following the rules below.
+- If the role of the account don't have the given authorization, for example page_edit(Functional authorization). The account can not edit any page even if some pages are explicitly granted edit authorization(Data authorization). On the other word, both functional authorization and data authorization are mandatory.
+- Data authorization
+  First resource owners have full control of the resource; Second owner groups have access/edit/del (Can manually revoked); Any account groups/accont can manually granted as demand.
 
 ## Other topics
 
@@ -192,5 +239,3 @@ The backend server is not well defined and will be optimized later.
 ### Type script support
 
 Although all the front end code are .ts file, in fact they are JS not conform to type script.
-
-### Chart linkage 
