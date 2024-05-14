@@ -1,17 +1,19 @@
 # MTTK Lowcode Engine and MTTK Open BI User Manual
 
+[中文用户手册](https://github.com/jamie-mttk/mttk-vue-wrap/blob/master/UserManual_CN.md)
+
 ## How to use
 
 ### Access URL
 
 Using this system only requires a modern browser! The default URL is  http://%your server ip%:8825
 
-![Login](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/login.png)
-
 ### Login
 
 Login screen will automatically appear if not login or login token is expired.
 Input username and passowrd. Defautl account is admin/123456
+
+![Login](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/src/screenCaptures/login.png)
 
 ### Application
 
@@ -51,7 +53,6 @@ It is the field which is not existed directly in datase table. Below are some ke
 ### Menu and page
 
 Menus are used to organize pages.
-
 Page has two layout strategy,one is flex ,the other is absolute. They can simply consider as CSS "display:flex" and "display:absolute".
 Flex strategy is recommanded to use,the chart will automatically extend to fit the screen width.
 Absolute strategy has fixed width and height, but it can be configured to fullfil the screen width/height or both. It is useful to build a dashboard/Larg screen to display in fullscreen mode. 
@@ -95,6 +96,7 @@ Some components, for example input/form need to set data.The type of data set mu
 
 Event can defined the behavior once component emit event. The event name can be select from list or input manually and then press Enter.
 Mutiple modes are supported to handle event
+
 |Mode|Description|
 |---|---|
 |Script|Call script directly. The first parameter is page contex, the second one is wrapper contex, the others are event original parameters. Page context and wrap context refer to later chapter "advanced topics"|
@@ -133,9 +135,7 @@ Refer to "Drilling demo" of the sample project. For example to shown the sales d
 
 #### Filter component
 
-It is used to filter the data lively in view mode. 
-
-The logic is data model based. All the chart with the same data model of the filter componet will be filtered automatically.
+It is used to filter the data lively in view mode. The logic is data model based. All the chart with the same data model of the filter componet will be filtered automatically.
 
 #### Pagination
 
