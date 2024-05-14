@@ -1,5 +1,7 @@
 # MTTK Lowcode Engine and MTTK Open BI
 
+[中文说明](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/README_CN.md)
+
 ## Brief
 
 ### MTTK Open BI
@@ -29,8 +31,7 @@ It can be considered as a visual Vue3 editor to manipulate data/computed/method/
 
 A live demo is  is avaibale at [http://139.129.210.30:8825](http://139.129.210.30:8825)
 
-User name: admin 
-
+User name: admin
 Password : 123456
 
 Please DO NOT CHANGE THE PASSWORD and the data will be reset every day.
@@ -94,7 +95,6 @@ This chapter guide how to isntall MTTK Lowcode Engine + MTTK Open BI into your l
 2. Install last version of Java (Min version 20)  
 3. Download lowcode.jar from [Here](https://github.com/jamie-mttk/mttk_lowcode_api/blob/main/lowcode.jar)  
     This jar includes all the necessary JS/CSS/HTML as static resouce.
-
 4. Start  
    Run command below ,replace %xxx% to correct path
    %your java path%/bin/java -jar %your lowcode jar path%/lowcode.jar
@@ -118,6 +118,10 @@ spring.servlet.multipart.enabled=false
 5. Finish
 
   Access URL  http://localhost:8825/ with username: admin and password: 123456
+
+## License
+
+Mttk Lowcode Engien and MTTK OPen BI are open source software licensed as MIT.
 
 ## Contact me
 
