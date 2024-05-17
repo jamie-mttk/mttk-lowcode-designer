@@ -10,7 +10,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
-    "mttk-bi": "^0.0.8",
+    "mttk-bi": "^0.0.9",
     "mttk-lowcode-engine": "^0.3.9"
   },
   "devDependencies": {
