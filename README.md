@@ -41,7 +41,7 @@ And since the server performance is pool it is a little slow to access especiall
 
 |Document|Description|
 |---|---|
-|README|This file|
+|[README](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/README.md)|This file|
 |[User manual](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/UserManual.md)| How to use|
 |[Developer manual](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/DeveloperManual.md)|How to develop new plugin|
 |[Release Note](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/ReleaseNote.md)|Change history|

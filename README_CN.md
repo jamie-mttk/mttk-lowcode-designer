@@ -29,7 +29,7 @@
 
 ## 在线演示
 
-在线演示可在 [http://139.129.210.30:8825](http://139.129.210.30:8825) 访问
+在线演示可访问 [http://139.129.210.30:8825](http://139.129.210.30:8825) 
 
 用户名: admin
 密码: 123456
@@ -41,8 +41,8 @@
 
 |文档|描述|
 |---|---|
-|README|此文件|
-|[用户手册](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/UserManual.md)|如何使用|
+|[README](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/README_CN.md)|此文件|
+|[用户手册](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/UserManual_CN.md)|如何使用|
 |[开发手册](https://github.com/jamie-mttk/mttk-lowcode-designer/master/DeveloperManual.md)|如何开发新插件|
 |[发布说明](https://github.com/jamie-mttk/mttk-lowcode-designer/blob/master/ReleaseNote.md)|变更历史|
 
