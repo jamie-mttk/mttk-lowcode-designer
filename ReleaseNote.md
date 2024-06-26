@@ -15,4 +15,4 @@ Add rich charts attributes setting
 Show accounts in role and account group form
 Optimize display in mobile
 Add chart: pivot table and boxplot
-
+Other minor optimize
