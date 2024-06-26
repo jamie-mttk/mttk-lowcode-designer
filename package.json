@@ -1,6 +1,6 @@
 {
   "name": "mttk-lowcode-designer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -10,8 +10,8 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
-    "mttk-bi": "^0.0.9",
-    "mttk-lowcode-engine": "^0.3.9"
+    "mttk-bi": "^0.1.1",
+    "mttk-lowcode-engine": "^0.4.2"
   },
   "devDependencies": {
     "@babel/types": "^7.21.4",
@@ -24,6 +24,7 @@
     "rollup-plugin-visualizer": "^5.12.0",
     "typescript": "~5.0.4",
     "vite": "^4.3.9",
+    "vite-plugin-cdn-import": "^1.0.1",
     "vite-plugin-cdn-import-rely": "^3.1.0",
     "vue-tsc": "^1.6.5"
   }
