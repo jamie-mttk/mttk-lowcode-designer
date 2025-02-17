@@ -29,7 +29,7 @@
 
 ## 在线演示
 
-在线演示可访问 [http://139.129.210.30:8825](http://139.129.210.30:8825) 
+在线演示可访问 [http://139.129.210.30:8825](http://139.129.210.30:8825)
 
 用户名: admin
 密码: 123456
@@ -125,4 +125,4 @@ Mttk Lowcode Engine 和 MTTK Open BI 是根据 MIT 许可证的开源软件.
 
 ## 联系我
 
-在 [github 讨论区](https://github.com/jamie-mttk/mttk-lowcode-designer/discussions) 联系我.
+在 [github 讨论区](https://github.com/jamie-mttk/mttk-lowcode-designer/discussions) 联系我
